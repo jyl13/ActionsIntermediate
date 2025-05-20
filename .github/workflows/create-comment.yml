@@ -8,7 +8,7 @@ on:
 jobs:
   create-comment:
     runs-on: ubuntu-latest
-    if: github.event.label.name == 'Au secours !!!!!!'
+    if: github.event.label.name == 'help wanted'
     steps:
       - name: Create comment
         uses: actions-cool/issues-helper@v3
