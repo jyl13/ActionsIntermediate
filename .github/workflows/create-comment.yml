@@ -9,6 +9,8 @@ jobs:
   create-comment:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'help wanted'
+    permissions:
+      issues: write
     steps:
       - name: Create comment
         uses: actions-cool/issues-helper@v3
