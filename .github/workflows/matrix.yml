@@ -20,4 +20,4 @@ jobs:
           node-version: ${{matrix.node}}
       - if: ${{matrix.npm}}
         run: npm install -g npm@${{matrix.npm}}
-        run: npm --version
+      - run: npm --version
