@@ -1,0 +1,27 @@
+name: Concurrency Demo
+on: 
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true 
+
+jobs:
+  job_1rst:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: |
+          echo "::group::The repository ${{ github.repository }} contains the following files"
+          tree
+          echo "::endgroup::
+      - name: Simulate work
+        run: sleep 30  
+  job_2nd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate work
+        run: sleep 30  
+      - name: Add job summary
+        run: echo "### Job completed! :rocket:" >> $GITHUB_STEP_SUMMARY
