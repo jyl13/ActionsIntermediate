@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "::group::The repository ${{ github.repository }} contains the following files"
           tree
-          echo "::endgroup::
+          echo "::endgroup::"
       - name: Simulate work
         run: sleep 30  
   job_2nd:
